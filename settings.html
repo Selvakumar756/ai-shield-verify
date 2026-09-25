@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ID Verify - Settings</title>
+
+    <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                🛡️
+            </div>
+
+            <div>
+                <h2>ID Verify</h2>
+                <span>Identity Security</span>
+            </div>
+
+        </div>
+
+
+        <nav class="nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>📊</span>
+                Dashboard
+            </a>
+
+            <a href="verification.html" class="nav-item">
+                <span>🔍</span>
+                Verify ID
+            </a>
+
+            <a href="documents.html" class="nav-item">
+                <span>📄</span>
+                Documents
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span>📈</span>
+                Reports
+            </a>
+
+            <a href="settings.html" class="nav-item active">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+        </nav>
+
+
+        <button class="logout-btn" id="logoutBtn">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- Header -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Settings</h1>
+
+                <p>
+                    Manage your account and application preferences.
+                </p>
+
+            </div>
+
+
+            <div class="profile">
+
+                <div class="profile-icon">
+                    👤
+                </div>
+
+                <div>
+
+                    <strong id="topUserName">
+                        User
+                    </strong>
+
+                    <small id="topUserEmail">
+                        user@email.com
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= PROFILE ================= -->
+
+        <section class="settings-card">
+
+            <div class="section-title">
+
+                <div class="section-icon">
+                    👤
+                </div>
+
+                <div>
+
+                    <h2>Profile Information</h2>
+
+                    <p>
+                        Update your personal information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Phone Number</label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter phone number"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Account Type</label>
+
+                    <input
+                        type="text"
+                        value="Standard User"
+                        disabled
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="save-btn"
+                id="saveProfile"
+            >
+                💾 Save Profile
+            </button>
+
+        </section>
+
+
+        <!-- ================= NOTIFICATIONS ================= -->
+
+        <section class="settings-card">
+
+            <div class="section-title">
+
+                <div class="section-icon">
+                    🔔
+                </div>
+
+                <div>
+
+                    <h2>Notifications</h2>
+
+                    <p>
+                        Control how you receive verification alerts.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <h3>Verification Alerts</h3>
+
+                    <p>
+                        Receive notifications when verification is completed.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="verificationAlerts"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <h3>Suspicious Activity Alerts</h3>
+
+                    <p>
+                        Get notified when suspicious documents are detected.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="securityAlerts"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <h3>Email Notifications</h3>
+
+                    <p>
+                        Receive important account updates through email.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="emailNotifications"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SECURITY ================= -->
+
+        <section class="settings-card">
+
+            <div class="section-title">
+
+                <div class="section-icon">
+                    🔒
+                </div>
+
+                <div>
+
+                    <h2>Security</h2>
+
+                    <p>
+                        Manage your account security settings.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="password-section">
+
+                <div class="form-group">
+
+                    <label>Current Password</label>
+
+                    <input
+                        type="password"
+                        id="currentPassword"
+                        placeholder="Enter current password"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>New Password</label>
+
+                    <input
+                        type="password"
+                        id="newPassword"
+                        placeholder="Enter new password"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Confirm Password</label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm new password"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="save-btn"
+                id="changePassword"
+            >
+                🔐 Change Password
+            </button>
+
+        </section>
+
+
+        <!-- ================= APPEARANCE ================= -->
+
+        <section class="settings-card">
+
+            <div class="section-title">
+
+                <div class="section-icon">
+                    🎨
+                </div>
+
+                <div>
+
+                    <h2>Appearance</h2>
+
+                    <p>
+                        Customize the appearance of your application.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <h3>Dark Mode</h3>
+
+                    <p>
+                        Use dark theme for the application.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="darkMode"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DANGER ZONE ================= -->
+
+        <section class="settings-card danger-card">
+
+            <div class="section-title">
+
+                <div class="section-icon danger-icon">
+                    ⚠️
+                </div>
+
+                <div>
+
+                    <h2>Account Actions</h2>
+
+                    <p>
+                        Manage your current session.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-main"
+                id="logoutMain"
+            >
+                🚪 Logout from Account
+            </button>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="settings.js"></script>
+
+</body>
+</html>
+```

@@ -1,0 +1,535 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ID Verify - Reports</title>
+
+    <link rel="stylesheet" href="reports.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                🛡️
+            </div>
+
+            <div>
+                <h2>ID Verify</h2>
+                <span>Identity Security</span>
+            </div>
+
+        </div>
+
+
+        <nav class="nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>📊</span>
+                Dashboard
+            </a>
+
+            <a href="verification.html" class="nav-item">
+                <span>🔍</span>
+                Verify ID
+            </a>
+
+            <a href="documents.html" class="nav-item">
+                <span>📄</span>
+                Documents
+            </a>
+
+            <a href="reports.html" class="nav-item active">
+                <span>📈</span>
+                Reports
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+        </nav>
+
+
+        <button class="logout-btn" id="logoutBtn">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- Header -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Reports & Analytics</h1>
+
+                <p>
+                    View identity verification statistics and reports.
+                </p>
+
+            </div>
+
+
+            <div class="profile">
+
+                <div class="profile-icon">
+                    👤
+                </div>
+
+                <div>
+
+                    <strong id="userName">
+                        User
+                    </strong>
+
+                    <small id="userEmail">
+                        user@email.com
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= STATISTICS ================= -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    📋
+                </div>
+
+                <div>
+
+                    <p>Total Verifications</p>
+
+                    <h2 id="totalCount">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+
+                    <p>Verified</p>
+
+                    <h2 id="verifiedCount">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon red">
+                    ⚠
+                </div>
+
+                <div>
+
+                    <p>Suspicious</p>
+
+                    <h2 id="suspiciousCount">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <p>Pending</p>
+
+                    <h2 id="pendingCount">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ANALYTICS ================= -->
+
+        <section class="analytics">
+
+            <!-- Verification Rate -->
+
+            <div class="analytics-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Verification Success Rate</h2>
+
+                        <p>
+                            Overall verification performance
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="rate-container">
+
+                    <div class="circle">
+
+                        <div class="circle-inner">
+
+                            <strong id="successRate">
+                                0%
+                            </strong>
+
+                            <span>
+                                Success
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="rate-details">
+
+                        <div class="rate-row">
+
+                            <span>
+                                Verified
+                            </span>
+
+                            <strong
+                                id="verifiedPercentage">
+                                0%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="rate-row">
+
+                            <span>
+                                Suspicious
+                            </span>
+
+                            <strong
+                                id="suspiciousPercentage">
+                                0%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="rate-row">
+
+                            <span>
+                                Pending
+                            </span>
+
+                            <strong
+                                id="pendingPercentage">
+                                0%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Document Types -->
+
+            <div class="analytics-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Document Types</h2>
+
+                        <p>
+                            Verification by document type
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="document-chart">
+
+                    <div class="chart-row">
+
+                        <span>Aadhaar Card</span>
+
+                        <div class="bar">
+                            <div
+                                class="bar-fill"
+                                id="aadhaarBar">
+                            </div>
+                        </div>
+
+                        <strong id="aadhaarCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="chart-row">
+
+                        <span>PAN Card</span>
+
+                        <div class="bar">
+                            <div
+                                class="bar-fill"
+                                id="panBar">
+                            </div>
+                        </div>
+
+                        <strong id="panCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="chart-row">
+
+                        <span>Passport</span>
+
+                        <div class="bar">
+                            <div
+                                class="bar-fill"
+                                id="passportBar">
+                            </div>
+                        </div>
+
+                        <strong id="passportCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="chart-row">
+
+                        <span>Driving Licence</span>
+
+                        <div class="bar">
+                            <div
+                                class="bar-fill"
+                                id="licenceBar">
+                            </div>
+                        </div>
+
+                        <strong id="licenceCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="chart-row">
+
+                        <span>Voter ID</span>
+
+                        <div class="bar">
+                            <div
+                                class="bar-fill"
+                                id="voterBar">
+                            </div>
+                        </div>
+
+                        <strong id="voterCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REPORT TABLE ================= -->
+
+        <section class="report-card">
+
+            <div class="report-header">
+
+                <div>
+
+                    <h2>Verification Report</h2>
+
+                    <p>
+                        Detailed verification history
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="export-btn"
+                    id="exportBtn"
+                >
+                    ⬇ Export CSV
+                </button>
+
+            </div>
+
+
+            <!-- Filters -->
+
+            <div class="filters">
+
+                <div class="search-box">
+
+                    🔍
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search reports..."
+                    >
+
+                </div>
+
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="Verified">
+                        Verified
+                    </option>
+
+                    <option value="Suspicious">
+                        Suspicious
+                    </option>
+
+                    <option value="Pending">
+                        Pending
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Table -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Document</th>
+
+                            <th>Date</th>
+
+                            <th>Confidence</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="reportTable">
+
+                    </tbody>
+
+                </table>
+
+
+                <div
+                    class="empty"
+                    id="emptyState"
+                >
+
+                    📊
+
+                    <h3>
+                        No verification reports
+                    </h3>
+
+                    <p>
+                        Complete an ID verification to generate reports.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="reports.js"></script>
+
+</body>
+</html>
+```

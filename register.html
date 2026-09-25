@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Shield Verify - Register</title>
+
+    <link rel="stylesheet" href="register.css">
+</head>
+
+<body>
+
+    <div class="register-container">
+
+        <!-- LEFT SIDE -->
+        <div class="register-brand">
+
+            <div class="brand-logo">
+                🛡️
+            </div>
+
+            <h1>AI Shield Verify</h1>
+
+            <p class="brand-subtitle">
+                Smarter Verification. Safer Tomorrow.
+            </p>
+
+            <div class="feature-list">
+
+                <div class="feature-item">
+                    <span>✓</span>
+                    <p>Detect Fake Documents</p>
+                </div>
+
+                <div class="feature-item">
+                    <span>✓</span>
+                    <p>Verify Identities with AI</p>
+                </div>
+
+                <div class="feature-item">
+                    <span>✓</span>
+                    <p>Secure & Reliable</p>
+                </div>
+
+                <div class="feature-item">
+                    <span>✓</span>
+                    <p>Built for a Safer World</p>
+                </div>
+
+            </div>
+
+            <div class="shield-illustration">
+                🛡️
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="register-section">
+
+            <div class="register-card">
+
+                <div class="register-header">
+
+                    <h2>Create Your Account</h2>
+
+                    <p>
+                        Join AI Shield Verify and secure identities.
+                    </p>
+
+                </div>
+
+
+                <form id="registerForm">
+
+                    <!-- FULL NAME -->
+                    <div class="input-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">👤</span>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+                    <div class="input-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">✉</span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PHONE -->
+                    <div class="input-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">📞</span>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="Enter your phone number"
+                                maxlength="10"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+                    <div class="input-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="password-box">
+
+                            <span class="input-icon">🔒</span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Create a password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                id="togglePassword">
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONFIRM PASSWORD -->
+                    <div class="input-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <div class="password-box">
+
+                            <span class="input-icon">🔒</span>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Confirm your password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                id="toggleConfirmPassword">
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TERMS -->
+                    <div class="terms">
+
+                        <label>
+
+                            <input
+                                type="checkbox"
+                                id="terms"
+                                required
+                            >
+
+                            <span>
+                                I agree to the terms and conditions
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- REGISTER BUTTON -->
+                    <button
+                        type="submit"
+                        class="register-btn">
+
+                        Create Account
+                        <span>→</span>
+
+                    </button>
+
+
+                    <!-- MESSAGE -->
+                    <p id="message"></p>
+
+                </form>
+
+
+                <!-- LOGIN -->
+                <div class="login-link">
+
+                    <p>
+                        Already have an account?
+
+                        <a href="index.html">
+                            Login
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="register.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Shield Verify - Verify ID</title>
+
+    <link rel="stylesheet" href="verification.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🛡️
+            </div>
+
+            <div>
+                <h2>AI Shield Verify</h2>
+                <span>Identity Security</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>📊</span>
+                Dashboard
+            </a>
+
+            <a href="verification.html" class="nav-item active">
+                <span>🔍</span>
+                Verify ID
+            </a>
+
+            <a href="documents.html" class="nav-item">
+                <span>📄</span>
+                Documents
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span>📑</span>
+                Reports
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+        </nav>
+
+
+        <button class="logout-btn" id="logoutBtn">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <button class="mobile-menu" id="mobileMenu">
+                ☰
+            </button>
+
+            <div class="search-box">
+
+                🔎
+
+                <input
+                    type="text"
+                    placeholder="Search..."
+                >
+
+            </div>
+
+
+            <div class="top-right">
+
+                <button class="notification-btn">
+                    🔔
+                </button>
+
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        👤
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong id="userName">
+                            User
+                        </strong>
+
+                        <span id="userEmail">
+                            user@email.com
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content">
+
+            <!-- PAGE TITLE -->
+
+            <div class="page-title">
+
+                <div>
+
+                    <h1>Verify Identity</h1>
+
+                    <p>
+                        Upload your identity document and let AI analyze it.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= VERIFICATION CARD ================= -->
+
+            <div class="verification-card">
+
+                <!-- PROGRESS STEPS -->
+
+                <div class="steps">
+
+                    <div class="step active">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+                        <span>Upload</span>
+
+                    </div>
+
+
+                    <div class="step-line"></div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+                        <span>OCR</span>
+
+                    </div>
+
+
+                    <div class="step-line"></div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+                        <span>AI Analysis</span>
+
+                    </div>
+
+
+                    <div class="step-line"></div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            4
+                        </div>
+
+                        <span>Result</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= UPLOAD SECTION ================= -->
+
+                <div class="upload-section">
+
+                    <div class="section-heading">
+
+                        <h2>Identity Document</h2>
+
+                        <p>
+                            Upload a clear image of your identity document.
+                        </p>
+
+                    </div>
+
+
+                    <!-- DOCUMENT TYPE -->
+
+                    <label>
+                        Document Type
+                    </label>
+
+                    <select id="documentType">
+
+                        <option value="">
+                            Select Document Type
+                        </option>
+
+                        <option value="Passport">
+                            Passport
+                        </option>
+
+                        <option value="Driver License">
+                            Driver License
+                        </option>
+
+                        <option value="Aadhaar Card">
+                            Aadhaar Card
+                        </option>
+
+                        <option value="Voter ID">
+                            Voter ID
+                        </option>
+
+                        <option value="PAN Card">
+                            PAN Card
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+
+                    <!-- UPLOAD BOX -->
+
+                    <div
+                        class="upload-box"
+                        id="uploadBox"
+                    >
+
+                        <div class="upload-icon">
+                            ☁️
+                        </div>
+
+                        <h3>
+                            Drag & Drop your document here
+                        </h3>
+
+                        <p>
+                            or
+                            <span>click to browse</span>
+                        </p>
+
+                        <small>
+                            JPG, PNG or PDF • Maximum 5MB
+                        </small>
+
+
+                        <input
+                            type="file"
+                            id="documentFile"
+                            accept=".jpg,.jpeg,.png,.pdf"
+                            hidden
+                        >
+
+                    </div>
+
+
+                    <!-- FILE INFO -->
+
+                    <div
+                        class="file-info"
+                        id="fileInfo"
+                        style="display:none;"
+                    >
+
+                        <div class="file-icon">
+                            📄
+                        </div>
+
+                        <div class="file-details">
+
+                            <strong id="fileName">
+                                Document
+                            </strong>
+
+                            <span id="fileSize">
+                                0 KB
+                            </span>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            id="removeFile"
+                        >
+                            ✕
+                        </button>
+
+                    </div>
+
+
+                    <!-- VERIFY BUTTON -->
+
+                    <button
+                        class="verify-btn"
+                        id="verifyBtn"
+                        type="button"
+                    >
+
+                        🔍
+                        Verify Document →
+
+                    </button>
+
+
+                    <!-- ================= PROGRESS ================= -->
+
+                    <div
+                        class="progress-section"
+                        id="progressSection"
+                        style="display:none;"
+                    >
+
+                        <div class="progress-header">
+
+                            <span id="progressText">
+                                Processing document...
+                            </span>
+
+                            <span>
+                                AI
+                            </span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div
+                                id="progress"
+                                class="progress"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= RESULT ================= -->
+
+                    <div
+                        class="result"
+                        id="result"
+                        style="display:none;"
+                    >
+
+                        <div
+                            class="result-icon"
+                            id="resultIcon"
+                        >
+                            ✓
+                        </div>
+
+
+                        <h2 id="resultTitle">
+                            Identity Verified
+                        </h2>
+
+
+                        <p id="resultMessage">
+                            The document passed the initial AI screening checks.
+                        </p>
+
+
+                        <div class="score-box">
+
+                            <span>
+                                Confidence Score
+                            </span>
+
+                            <strong id="resultScore">
+                                93%
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            class="another-btn"
+                            onclick="location.reload()"
+                        >
+                            Verify Another ID
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= HOW IT WORKS ================= -->
+
+            <div class="how-card">
+
+                <h2>How AI Shield Verify Works</h2>
+
+                <div class="how-grid">
+
+                    <div class="how-item">
+
+                        <div class="how-number">
+                            01
+                        </div>
+
+                        <div>
+                            <h3>Upload Document</h3>
+                            <p>
+                                Upload a clear identity document.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="how-item">
+
+                        <div class="how-number">
+                            02
+                        </div>
+
+                        <div>
+                            <h3>OCR Processing</h3>
+                            <p>
+                                Text and document details are extracted.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="how-item">
+
+                        <div class="how-number">
+                            03
+                        </div>
+
+                        <div>
+                            <h3>AI Analysis</h3>
+                            <p>
+                                AI checks the extracted information for suspicious patterns.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="how-item">
+
+                        <div class="how-number">
+                            04
+                        </div>
+
+                        <div>
+                            <h3>Verification Result</h3>
+                            <p>
+                                The system generates a confidence score.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="verification.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ID Verify - Documents</title>
+
+    <link rel="stylesheet" href="documents.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">🛡️</div>
+
+            <div>
+                <h2>ID Verify</h2>
+                <span>Identity Security</span>
+            </div>
+        </div>
+
+        <nav class="nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>📊</span>
+                Dashboard
+            </a>
+
+            <a href="verification.html" class="nav-item">
+                <span>🔍</span>
+                Verify ID
+            </a>
+
+            <a href="documents.html" class="nav-item active">
+                <span>📄</span>
+                Documents
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span>📈</span>
+                Reports
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+        </nav>
+
+        <button class="logout-btn" id="logoutBtn">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- Main -->
+    <main class="main">
+
+        <!-- Header -->
+        <header class="topbar">
+
+            <div>
+                <h1>Documents</h1>
+
+                <p>
+                    Manage your identity verification documents.
+                </p>
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-icon">
+                    👤
+                </div>
+
+                <div>
+                    <strong id="userName">User</strong>
+
+                    <small id="userEmail">
+                        user@email.com
+                    </small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Statistics -->
+        <section class="document-stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    📄
+                </div>
+
+                <div>
+                    <p>Total Documents</p>
+                    <h2 id="totalDocuments">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+                    <p>Verified</p>
+                    <h2 id="verifiedDocuments">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon red">
+                    ⚠
+                </div>
+
+                <div>
+                    <p>Suspicious</p>
+                    <h2 id="suspiciousDocuments">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ⏳
+                </div>
+
+                <div>
+                    <p>Pending</p>
+                    <h2 id="pendingDocuments">0</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Document Section -->
+        <section class="documents-card">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>My Documents</h2>
+
+                    <p>
+                        All uploaded identity documents
+                    </p>
+                </div>
+
+                <button
+                    class="upload-btn"
+                    onclick="goToVerification()"
+                >
+                    + Upload Document
+                </button>
+
+            </div>
+
+
+            <!-- Search & Filter -->
+            <div class="filters">
+
+                <div class="search-box">
+
+                    <span>🔍</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search documents..."
+                    >
+
+                </div>
+
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="Verified">
+                        Verified
+                    </option>
+
+                    <option value="Suspicious">
+                        Suspicious
+                    </option>
+
+                    <option value="Pending">
+                        Pending
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Table -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Document ID</th>
+                            <th>Document Type</th>
+                            <th>Date</th>
+                            <th>Confidence</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="documentTable">
+
+                    </tbody>
+
+                </table>
+
+
+                <!-- Empty State -->
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                    style="display: none;"
+                >
+
+                    <div>📂</div>
+
+                    <h3>
+                        No documents found
+                    </h3>
+
+                    <p>
+                        Upload an identity document to start verification.
+                    </p>
+
+                    <button
+                        onclick="goToVerification()"
+                    >
+                        Upload Document
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- Document View Modal -->
+<div
+    class="modal"
+    id="documentModal"
+>
+
+    <div class="modal-content">
+
+        <button
+            class="close-btn"
+            id="closeModal"
+        >
+            ✕
+        </button>
+
+        <h2>Document Details</h2>
+
+        <div class="modal-details">
+
+            <p>
+                <strong>Document ID:</strong>
+                <span id="modalId"></span>
+            </p>
+
+            <p>
+                <strong>Document Type:</strong>
+                <span id="modalType"></span>
+            </p>
+
+            <p>
+                <strong>Date:</strong>
+                <span id="modalDate"></span>
+            </p>
+
+            <p>
+                <strong>Confidence:</strong>
+                <span id="modalConfidence"></span>
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                <span id="modalStatus"></span>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="documents.js"></script>
+
+</body>
+</html>
+```
